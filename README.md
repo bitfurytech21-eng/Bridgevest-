@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -118,7 +117,6 @@
     /* sections */
     section{padding:36px 6vw}
     .container{max-width:1100px;margin:0 auto}
-
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .card{
       background:white;
@@ -196,7 +194,6 @@
       </div>
       <h1>Your Bridge to Smarter Investments through Agriculture, Real Estate, and Beyond.</h1>
       <p>Where technology meets opportunity. Invest in verified agricultural and real estate ventures powered by transparency and innovation.</p>
-
       <div class="cta" style="margin-top:18px">
         <button class="btn" id="ctaLogin">Login</button>
         <button class="btn ghost" id="ctaCreate">Create Account</button>
@@ -237,10 +234,10 @@
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap">
         <div style="flex:1;min-width:300px">
           <h2>About BridgeVest Global</h2>
-          <p class="muted">BridgeVest Global is a diversified asset management company transforming agriculture and real estate into transparent, high-yielding opportunities through a technology-driven ecosystem. Our integrated model merges human expertise, AI forecasting, and blockchain transparency.</p>
-          <p class="small muted"><strong>Vision:</strong> Make agriculture and real estate accessible, trusted, and profitable. <br><strong>Mission:</strong> Bridge people from capital to opportunity.</p>
+          <p class="muted">BridgeVest Global is a diversified asset management company transforming agriculture and real estate into transparent, high-yielding opportunities through a professional and technology-driven ecosystem. Our integrated model merges human expertise, AI forecasting, and blockchain transparency.</p>
+          <p class="small muted"><strong>Vision:</strong> To make agriculture and real estate the world’s most accessible, trusted, and profitable investment classes.To democratize access to opportunities that drive food security, housing, and sustainable wealth globally. <br><strong>Mission:</strong> To bridge people from capital to opportunity, turning ordinary savings into growth through innovation, integrity, and expert management, connecting sustainable assets with smart financial technology.
+Motto: “Building Wealth, Securing Futures.</p>
         </div>
-
         <div style="width:420px">
           <div class="card">
             <strong>Why choose BridgeVest</strong>
@@ -266,7 +263,8 @@
       <div class="grid-3" style="margin-top:14px">
         <div class="card">
           <h4>Agriculture Investment</h4>
-          <p class="muted">Connect with real agricultural assets. Invest across value chains — from plantations to processing.</p>
+          <p class="muted">Connect with real agricultural assets. Invest across value chains from plantations to processing.Here At BridgeVest, we connect investors with real agricultural assets through structured participation across global agricultural value chains.
+Your investment serves as the seed managed by our professionals to yield measurable growth.Become a farmer today, without being on the farm.</p>
           <div style="display:flex;gap:8px;margin-top:10px">
             <button class="btn" onclick="alert('View Agricultural Plans (demo)')">View Plans</button>
             <button class="btn ghost" onclick="alert('Rent a Land (demo)')">Rent a land</button>
@@ -274,9 +272,9 @@
         </div>
         <div class="card">
           <h4>Real Estate Investment</h4>
-          <p class="muted">Property leasing, construction projects and estate development without hands-on management.</p>
-          <div style="display:flex;gap:8px;margin-top:10px">
-            <button class="btn" onclick="alert('View Real Estate Plans (demo)')">View Plans</button>
+          <p class="muted">Property leasing, construction projects and estate development without hands on management.Join global real estate projects today with Bridgevest starting  from property leasing to construction and estate development without managing a single site yourself.</p>
+          <div     style="display:flex;gap:8px;margin-top:10px">
+           <button class="btn" onclick="alert('View Real Estate Plans (demo)')">View Plans</button>
             <button class="btn ghost" onclick="alert('Rent & Build (demo)')">Rent & Build</button>
           </div>
         </div>
@@ -399,12 +397,9 @@
       }
       modalBackdrop.style.display = 'flex';
     }
-    function closeModal(){ modalBackdrop.style.display='none'; }
-
-    document.getElementById('btnLogin').addEventListener('click',()=>openModal('login'));
-    document.getElementById('btnRegister').addEventListener('click',()=>openModal('register'));
-    document.getElementById('ctaLogin').addEventListener('click',()=>openModal('login'));
-    document.getElementById('ctaCreate').addEventListener('click',()=>openModal('register'));
+    function closeModal(){ modalBackdrop.style.display='none'; }    document.getElementById('btnLogin').addEventListener('click',()=>openModal('login')); document.getElementById('btnRegister').addEventListener('click',()=>openModal('register'))
+document.getElementById('ctaLogin').addEventListener('click',()=>openModal('login'));
+document.getElementById('ctaCreate').addEventListener('click',()=>openModal('register'));
     modalBackdrop.addEventListener('click',(e)=>{ if (e.target === modalBackdrop) closeModal(); });
     // ---------- fake auth / dashboard demo ----------
     function fakeLogin(){
@@ -428,14 +423,13 @@
             <div class="small muted">Account Balance</div>
           </div>
         </div>
-        <button class="btn ghost" onclick="goToDashboard()">Dashboard</button>
-        <button class="btn" onclick="logout()">Logout</button>
+        <button class="btn ghost" onclick="goToDashboard()">Dashboard</button><button class="btn" onclick="logout()">Logout</button>
       `
       alert('Welcome back — demo dashboard is available via the "Dashboard" button.');
     }
     function goToDashboard(){
       // quick scroll to top and reveal a small dashboard overlay card
-      window.scrollTo({top:0,behavior:'smooth'});
+window.scrollTo({top:0,behavior:'smooth'});
       const existing = document.getElementById('dashOverlay');
       if (existing) return existing.style.display = 'block';
       const overlay = document.createElement('div');
@@ -469,10 +463,8 @@
       `;
       document.body.appendChild(overlay);
     }
-    function logout(){
-      location.reload();
-    }
-    // ---------- newsletter ----------
+    function logout(){location.reload();
+    }// ---------- newsletter ----------
     function subscribe(){
       const em = document.getElementById('newsletterEmail').value || '';
       if (!em.includes('@')) return alert('Please enter a valid email');
@@ -514,7 +506,7 @@
       }
     });
     // small accessibility: lang select logs (demo)
-    document.getElementById('langSelect').addEventListener('change', (e)=> {
+document.getElementById('langSelect').addEventListener('change', (e)=> {
       console.log('language selected:', e.target.value);
     });
     // keyboard: Enter opens login quick (demo)
