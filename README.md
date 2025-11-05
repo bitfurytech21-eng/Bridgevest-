@@ -221,7 +221,7 @@
         <div style="display:flex;justify-content:space-between;align-items:center;">
           <div>
             <div style="font-weight:700">BridgeVest Live</div>
-            <div class="small">Agri & Property indices • Updated in real-time (demo)</div>
+            <div class="small">Agri & Property indices • Updated in real-time </div>
           </div>
           <div style="background:rgba(255,255,255,0.12);padding:8px;border-radius:10px;font-weight:600">Invest</div>
         </div>
@@ -249,7 +249,7 @@ Motto: “Building Wealth, Securing Futures.</p>
             </ul>
             <div style="margin-top:12px;display:flex;gap:8px">
               <button class="btn" onclick="alert('Demo: Explore Plans')">Explore Our Plans</button>
-              <button class="btn ghost" onclick="alert('Demo: Contact Support')">Contact</button>
+              <button class="btn ghost" onclick="alert: Contact Support')">Contact</button>
             </div>
           </div>
         </div>
@@ -280,25 +280,41 @@ Your investment serves as the seed managed by our professionals to yield measura
         </div>
         <div class="card">
           <h4>Market Insight</h4>
-          <p class="muted">Real-time commodity pricing and property index trackers. Integrated via market APIs (demo data below).</p>
-          <div style="margin-top:12px" class="small muted">Sample feeds: maize, cocoa, rice, palm oil</div>
-        </div>
-      </div>
+          <p class="muted">Real-time commodity pricing and property index trackers.<section id="market-section" style="background:#eaf3ff;padding:25px;border-radius:10px;">
+  <h2>🌐 Global Market Insights</h2>
+  <div id="market-data">Fetching live market insights...</div>
+</section>
+<script>
+const API_KEY = "YOUR_TWELVEDATA_API_KEY"; // 9ab122705eda43a19e4f303fd5cf400a
+async function loadMarketInsights() {
+  const symbols = ["CORN/USD", "WHEAT/USD", "COFFEE/USD", "GOLD/USD"];
+  const marketData = [];
+  for (const symbol of symbols) {
+    const url = `https://api.twelvedata.com/quote?symbol=${symbol}&apikey=${API_KEY}`;
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      if (data && data.name) marketData.push(data);
+    } catch (err) {
+      console.error(`Error loading ${symbol}`, err);
+    }
+  }
+  const container = document.getElementById("market-data");
+  container.innerHTML = marketData.map(item => `
+    <div style="margin-bottom:15px;padding:10px;border:1px solid #ccc;border-radius:5px;background:white;">
+      <h3>${item.name} (${item.symbol})</h3>
+      <p>Price: <strong>${item.close}</strong> ${item.currency}</p>
+      <p>Change: <span style="color:${item.percent_change > 0 ? 'green':'red'};">
+        ${item.percent_change}%
+      </span></p>
+      <small>Last updated: ${item.datetime}</small>
     </div>
-  </section>
-  <!-- LIVE CHARTS -->
-  <section id="charts">
-    <div class="container">
-      <h3>Live Charts & Market Insight (Demo)</h3>
-      <div class="charts" style="margin-top:12px">
-        <div class="chart-card card">
-          <canvas id="commodityChart" height="160"></canvas>
-        </div>
-        <div class="chart-card card">
-          <canvas id="propertyChart" height="160"></canvas>
-        </div>
-      </div>
-    </div>
+  `).join('');
+}
+loadMarketInsights();
+// Optional: refresh every 5 minutes
+setInterval(loadMarketInsights, 300000);
+</script>
   </section>
   <!-- PROGRAMS -->
   <section id="programs">
@@ -367,7 +383,7 @@ Your investment serves as the seed managed by our professionals to yield measura
       </div>
     </div>
   </div>
-  <!-- Simple client-side JS to demo interactions and charts -->
+  <!-- Simple client-side JS to interactions and charts -->
   <script>
     // ---------- modal logic ----------
     const modalBackdrop = document.getElementById('modalBackdrop');
@@ -401,18 +417,18 @@ Your investment serves as the seed managed by our professionals to yield measura
 document.getElementById('ctaLogin').addEventListener('click',()=>openModal('login'));
 document.getElementById('ctaCreate').addEventListener('click',()=>openModal('register'));
     modalBackdrop.addEventListener('click',(e)=>{ if (e.target === modalBackdrop) closeModal(); });
-    // ---------- fake auth / dashboard demo ----------
-    function fakeLogin(){
+    // ---------- auth / dashboard  ----------
+    function Login(){
       // minimal simulation: close modal and show alert + dashboard header replacement
       closeModal();
-      showDashboardMock();
+      showDashboard();
     }
-    function fakeRegister(){
+    function Register(){
       closeModal();
-      alert('Account created (demo). You are now logged in.');
+      alert('Account created . You are now logged in.');
       showDashboardMock();
     }
-    function showDashboardMock(){
+    function showDashboard(){
       // Replace topbar right area with investor snapshot
       const topbar = document.querySelector('.topbar .auth-actions');
       topbar.innerHTML = `
@@ -425,7 +441,7 @@ document.getElementById('ctaCreate').addEventListener('click',()=>openModal('reg
         </div>
         <button class="btn ghost" onclick="goToDashboard()">Dashboard</button><button class="btn" onclick="logout()">Logout</button>
       `
-      alert('Welcome back — demo dashboard is available via the "Dashboard" button.');
+      alert('Welcome back — dashboard is available via the "Dashboard" button.');
     }
     function goToDashboard(){
       // quick scroll to top and reveal a small dashboard overlay card
@@ -467,12 +483,11 @@ window.scrollTo({top:0,behavior:'smooth'});
     }// ---------- newsletter ----------
     function subscribe(){
       const em = document.getElementById('newsletterEmail').value || '';
-      if (!em.includes('@')) return alert('Please enter a valid email');
-      alert('Subscribed: ' + em + ' (demo).');
-      document.getElementById('newsletterEmail').value = '';
+      if (!em.includes('@')) return alert('bitfurytech@protonmail.com');
+      alert('Subscribed: ' + em .');
+document.getElementById('newsletterEmail').value = '';
     }
-    // ---------- demo charts with Chart.js ----------
-    // Commodity price demo (maize, cocoa, rice)
+    // ---------- charts with Chart.js ---------   // Commodity price demo (maize, cocoa, rice)
     const ctx1 = document.getElementById('commodityChart').getContext('2d');
     const commodityChart = new Chart(ctx1, {
       type:'line',
@@ -491,13 +506,13 @@ window.scrollTo({top:0,behavior:'smooth'});
         }
       }
     });
-    // Property index demo
+    // Property index
     const ctx2 = document.getElementById('propertyChart').getContext('2d');
     const propertyChart = new Chart(ctx2, {
       type:'bar',
       data:{
         labels:['Q1','Q2','Q3','Q4'],
-        datasets:[{label:'Urban Index Growth', data:[2.1,3.2,2.8,3.5], borderRadius:6}]
+        datasets:[{label:'Urban Index Growth', data:[2.1,3.2,2.8
       },
       options:{
         responsive:true,
@@ -505,11 +520,10 @@ window.scrollTo({top:0,behavior:'smooth'});
         scales:{y:{ticks:{callback: v => v + '%'}}}
       }
     });
-    // small accessibility: lang select logs (demo)
+    // small accessibility: lang select logs 
 document.getElementById('langSelect').addEventListener('change', (e)=> {
       console.log('language selected:', e.target.value);
-    });
-    // keyboard: Enter opens login quick (demo)
+    });// keyboard: Enter opens login quick 
     window.addEventListener('keydown', (e)=>{ if (e.key==='/' && !e.metaKey) openModal('login'); });
   </script>
 </body>
