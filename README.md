@@ -274,48 +274,11 @@ Your investment serves as the seed managed by our professionals to yield measura
           <h4>Real Estate Investment</h4>
           <p class="muted">Property leasing, construction projects and estate development without hands on management.Join global real estate projects today with Bridgevest starting  from property leasing to construction and estate development without managing a single site yourself.</p>
           <div     style="display:flex;gap:8px;margin-top:10px">
-           <button class="btn" onclick="alert('View Real Estate Plans (demo)')">View Plans</button>
-            <button class="btn ghost" onclick="alert('Rent & Build (demo)')">Rent & Build</button>
+           <button class="btn" onclick="alert('View Real Estate Plans)">View Plans</button>
+            <button class="btn ghost" onclick="alert('Rent & Build')">Rent & Build</button>
           </div>
         </div>
         <div class="card">
-          <h4>Market Insight</h4>
-          <p class="muted">Real-time commodity pricing and property index trackers.<section id="market-section" style="background:#eaf3ff;padding:25px;border-radius:10px;">
-  <h2>🌐 Global Market Insights</h2>
-  <div id="market-data">Fetching live market insights...</div>
-</section>
-<script>
-const API_KEY = "YOUR_TWELVEDATA_API_KEY"; // 9ab122705eda43a19e4f303fd5cf400a
-async function loadMarketInsights() {
-  const symbols = ["CORN/USD", "WHEAT/USD", "COFFEE/USD", "GOLD/USD"];
-  const marketData = [];
-  for (const symbol of symbols) {
-    const url = `https://api.twelvedata.com/quote?symbol=${symbol}&apikey=${API_KEY}`;
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-      if (data && data.name) marketData.push(data);
-    } catch (err) {
-      console.error(`Error loading ${symbol}`, err);
-    }
-  }
-  const container = document.getElementById("market-data");
-  container.innerHTML = marketData.map(item => `
-    <div style="margin-bottom:15px;padding:10px;border:1px solid #ccc;border-radius:5px;background:white;">
-      <h3>${item.name} (${item.symbol})</h3>
-      <p>Price: <strong>${item.close}</strong> ${item.currency}</p>
-      <p>Change: <span style="color:${item.percent_change > 0 ? 'green':'red'};">
-        ${item.percent_change}%
-      </span></p>
-      <small>Last updated: ${item.datetime}</small>
-    </div>
-  `).join('');
-}
-loadMarketInsights();
-// Optional: refresh every 5 minutes
-setInterval(loadMarketInsights, 300000);
-</script>
-  </section>
   <!-- PROGRAMS -->
   <section id="programs">
     <div class="container">
